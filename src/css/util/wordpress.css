@@ -1,0 +1,20 @@
+#wpadminbar {
+  position: fixed !important;
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wp-caption {
+  max-width: 100%;
+}
