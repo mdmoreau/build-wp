@@ -19,3 +19,9 @@ function theme_js() {
   wp_enqueue_script('theme-main', get_theme_file_uri('/dist/js/main.min.js'), [], null, true);
 }
 add_action('wp_enqueue_scripts', 'theme_js');
+
+// remove caption padding
+function remove_caption_padding($width) {
+  return $width - 10;
+}
+add_filter('img_caption_shortcode_width', 'remove_caption_padding');
