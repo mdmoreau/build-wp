@@ -35,6 +35,15 @@ function remove_caption_padding($width) {
 }
 add_filter('img_caption_shortcode_width', 'remove_caption_padding');
 
+// customize oembed
+function customize_oembed($return, $data) {
+  if (is_object($data) && property_exists($data, 'type') && $data->type === 'video') {
+    return "<div class='video'>$return</div>";
+  }
+  return $return;
+}
+add_filter('oembed_dataparse', 'customize_oembed', 10, 2);
+
 // inline svg function
 function svg($img, $class = '', $echo = true) {
   $html = "<span class='svg svg--$img $class'>";
