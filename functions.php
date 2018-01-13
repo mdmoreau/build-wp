@@ -34,3 +34,15 @@ function remove_caption_padding($width) {
   return $width - 10;
 }
 add_filter('img_caption_shortcode_width', 'remove_caption_padding');
+
+// inline svg function
+function svg($img, $class = '', $echo = true) {
+  $html = "<span class='svg svg--$img $class'>";
+  $html .= file_get_contents(get_theme_file_path("/img/$img.svg"));
+  $html .= '</span>';
+  if ($echo) {
+    echo $html;
+  } else {
+    return $html;
+  }
+}
