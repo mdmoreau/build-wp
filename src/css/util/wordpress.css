@@ -18,3 +18,7 @@
 .wp-caption {
   max-width: 100%;
 }
+
+.screen-reader-text {
+  @mixin hide;
+}
