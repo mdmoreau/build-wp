@@ -20,5 +20,5 @@
 }
 
 .screen-reader-text {
-  @mixin hide;
+  @apply --hide;
 }
