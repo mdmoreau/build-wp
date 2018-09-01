@@ -6,9 +6,6 @@ Use with https://github.com/mdmoreau/build for WordPress theme development.
 
 - Add the build and build-wp repository contents to the theme root
 - Remove `index.html`
-- Add `Vagrantfile` from https://github.com/mdmoreau/vagrantfile-wp
-  - Update available options as needed
-  - Add `.vagrant` to `.gitignore`
 - Add `@import 'util/wordpress';` to utilities in `src/css/main.css`
 - Update Browsersync options in `config/browsersync.config.js`
   - Change `index.html` to `**/*.php` in the `files` array
