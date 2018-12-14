@@ -7,6 +7,7 @@ Use with https://github.com/mdmoreau/build for WordPress theme development.
 - Add the build repository contents to the theme root
 - Merge the build-wp repository contents into the theme root
 - Remove `index.html`
+- Set a valid proxy in `config/browsersync.config.js`
 - Update `style.css` with theme information
 - Add `screenshot.jpg` with dimensions of 1200x900
 
