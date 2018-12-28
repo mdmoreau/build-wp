@@ -1,3 +1,5 @@
+const compression = require('compression');
+
 module.exports = {
   files: [
     '**/*.php',
@@ -10,6 +12,9 @@ module.exports = {
     'addDir',
     'unlinkDir',
   ],
-  proxy: 'site.localhost',
+  proxy: {
+    target: 'site.localhost',
+    middleware: compression(),
+  },
   open: 'ui',
 };
