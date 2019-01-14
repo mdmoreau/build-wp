@@ -74,10 +74,7 @@ const config = {
       filename: 'css/[name].css',
     }),
     new BrowserSyncPlugin({
-      files: [
-        '**/*.php',
-        'dist/**/*',
-      ],
+      files: '**/*.php',
       proxy: 'site.localhost',
       open: 'ui',
     }, {
