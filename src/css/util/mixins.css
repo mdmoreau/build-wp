@@ -1,0 +1,36 @@
+@define-mixin clear {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@define-mixin container $max-width: 90rem {
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@define-mixin hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@define-mixin zero {
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}

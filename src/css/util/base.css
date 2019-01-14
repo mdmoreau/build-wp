@@ -1,0 +1,48 @@
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+iframe {
+  border: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  border-radius: 0;
+  color: inherit;
+}
+
+[type='search'] {
+  appearance: none;
+}
+
+::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+[data-whatintent='mouse'] :focus,
+[data-whatintent='touch'] :focus {
+  outline: 0;
+}
