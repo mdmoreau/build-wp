@@ -12,8 +12,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-const compression = require('compression');
-
 const config = {
   entry: {
     styles: './src/css/styles.css',
@@ -83,10 +81,7 @@ const config = {
     }),
     new BrowserSyncPlugin({
       files: '**/*.php',
-      proxy: {
-        target: 'site.localhost',
-        middleware: compression(),
-      },
+      proxy: 'site.localhost',
       open: 'ui',
     }, {
       injectCss: true,
