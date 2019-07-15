@@ -49,7 +49,7 @@ const config = {
                   },
                 }),
                 postcssInlineSvg({
-                  path: 'img',
+                  paths: ['img'],
                 }),
               ],
             },
