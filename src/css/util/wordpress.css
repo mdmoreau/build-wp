@@ -2,6 +2,10 @@
   position: fixed !important;
 }
 
+.wp-caption {
+  max-width: 100%;
+}
+
 .alignleft {
   float: left;
 }
@@ -13,8 +17,4 @@
 .aligncenter {
   margin-right: auto;
   margin-left: auto;
-}
-
-.wp-caption {
-  max-width: 100%;
 }
