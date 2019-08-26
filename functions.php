@@ -44,14 +44,7 @@ function customize_oembed($return, $data) {
 }
 add_filter('oembed_dataparse', 'customize_oembed', 10, 2);
 
-// inline svg function
-function inline_svg($img, $class = '', $echo = true) {
-  $html = "<span class='svg svg--$img $class'>";
-  $html .= file_get_contents(get_theme_file_path("/img/$img.svg"));
-  $html .= '</span>';
-  if ($echo) {
-    echo $html;
-  } else {
-    return $html;
-  }
+// inline svg
+function inline_svg($img, $class = '') {
+  return "<span class='svg svg--$img $class'>" . file_get_contents(get_theme_file_path("/img/$img.svg")) . '</span>';
 }
