@@ -3,7 +3,6 @@
 // theme settings
 function theme_settings() {
   add_theme_support('title-tag');
-  add_theme_support('post-thumbnails');
   add_editor_style([get_theme_file_uri('/dist/css/styles.css')]);
 }
 add_action('after_setup_theme', 'theme_settings');
