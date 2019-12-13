@@ -45,5 +45,5 @@ add_filter('oembed_dataparse', 'customize_oembed', 10, 2);
 
 // inline svg
 function inline_svg($img, $class = '') {
-  return "<span class='svg svg--$img $class'>" . file_get_contents(get_theme_file_path("/img/$img.svg")) . '</span>';
+  return "<span class='svg svg--$img $class'>" . file_get_contents(get_theme_file_path("/dist/img/$img.svg")) . '</span>';
 }

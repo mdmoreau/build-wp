@@ -5,10 +5,25 @@ const postcssMixins = require('postcss-mixins');
 const postcssPresetEnv = require('postcss-preset-env');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
+const svgo = {
+  multipass: true,
+  plugins: [
+    {
+      cleanupIDs: {
+        minify: false,
+      },
+    },
+    { removeViewBox: false },
+    { removeDimensions: true },
+  ],
+};
 
 const config = {
   entry: {
@@ -69,6 +84,16 @@ const config = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/img',
+        to: 'img',
+      },
+    ]),
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/,
+      svgo,
+    }),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
