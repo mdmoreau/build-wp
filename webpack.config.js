@@ -37,6 +37,21 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'raw-loader',
+            options: {
+              esModule: false,
+            },
+          },
+          {
+            loader: 'svgo-loader',
+            options: svgo,
+          },
+        ],
+      },
+      {
         test: /\.css$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
