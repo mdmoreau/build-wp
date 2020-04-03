@@ -98,7 +98,9 @@ const config = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+    }),
     new CopyWebpackPlugin([
       {
         from: 'src/img',
