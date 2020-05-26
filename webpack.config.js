@@ -102,12 +102,14 @@ const config = {
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/img',
-        to: 'img',
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/img',
+          to: 'img',
+        },
+      ],
+    }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/,
       svgo,
