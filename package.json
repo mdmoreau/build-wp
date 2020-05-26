@@ -25,7 +25,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "eslint-config-airbnb",
+    "extends": [
+      "airbnb",
+      "airbnb/hooks"
+    ],
     "env": {
       "browser": true
     }
