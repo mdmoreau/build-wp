@@ -1,5 +1,3 @@
-const path = require('path');
-
 const postcssImport = require('postcss-import');
 const postcssMixins = require('postcss-mixins');
 const postcssPresetEnv = require('postcss-preset-env');
@@ -29,7 +27,6 @@ const config = {
     main: ['./src/css/main.css', './src/js/main.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
   },
   devServer: {
