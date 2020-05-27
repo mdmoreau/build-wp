@@ -7,10 +7,8 @@ const postcssPresetEnv = require('postcss-preset-env');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const svgo = {
   multipass: true,
@@ -26,13 +24,28 @@ const svgo = {
 };
 
 const config = {
+  mode: 'development',
   entry: {
-    styles: './src/css/styles.css',
-    scripts: './src/js/scripts.js',
+    main: ['./src/css/main.css', './src/js/main.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
+  },
+  devServer: {
+    hot: true,
+    open: true,
+    host: 'site.localhost',
+    proxy: {
+      '/': {
+        target: 'http://site.localhost',
+        changeOrigin: true,
+      },
+    },
+    before: (app, server) => {
+      server._watch('**/*.php'); // eslint-disable-line
+    },
+    writeToDisk: (filePath) => /^(?!.*(hot)).*/.test(filePath),
   },
   module: {
     rules: [
@@ -54,7 +67,12 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          { loader: MiniCssExtractPlugin.loader },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: true,
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -115,22 +133,14 @@ const config = {
       test: /\.(jpe?g|png|gif|svg)$/,
       svgo,
     }),
-    new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
-    }),
-    new BrowserSyncPlugin({
-      files: '**/*.php',
-      proxy: 'site.localhost',
-      open: 'ui',
-    }, {
-      injectCss: true,
     }),
   ],
 };
 
 module.exports = (env, argv) => {
-  if (argv.mode === 'production' || !argv.mode) {
+  if (argv.mode === 'production') {
     config.plugins.push(new OptimizeCssAssetsPlugin({ cssProcessorPluginOptions: { preset: ['default', { mergeRules: false }] } }));
   }
   return config;
