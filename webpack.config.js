@@ -107,6 +107,7 @@ const config = {
         {
           from: 'src/img',
           to: 'img',
+          noErrorOnMissing: true,
         },
       ],
     }),
