@@ -8,6 +8,8 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const host = 'site.localhost';
+
 const svgo = {
   multipass: true,
   plugins: [
@@ -31,10 +33,10 @@ const config = {
   devServer: {
     hot: true,
     open: true,
-    host: 'site.localhost',
+    host,
     proxy: {
       '/': {
-        target: 'http://site.localhost',
+        target: `http://${host}`,
         changeOrigin: true,
       },
     },
