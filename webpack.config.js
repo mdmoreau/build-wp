@@ -1,3 +1,5 @@
+const path = require('path');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -46,6 +48,7 @@ const config = {
     main: ['./src/css/main.css', './src/js/main.js'],
   },
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
   },
   devServer: {
