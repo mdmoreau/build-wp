@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const host = 'site.localhost';
+const publicPath = '/wp-content/themes/site/dist/';
 
 const svgo = {
   multipass: true,
@@ -55,6 +56,7 @@ const config = {
     hot: true,
     open: true,
     host,
+    publicPath,
     proxy: {
       '/': {
         target: `http://${host}`,
@@ -66,7 +68,6 @@ const config = {
     before: (app, server) => {
       server._watch('**/*.php'); // eslint-disable-line
     },
-    writeToDisk: (filePath) => /^(?!.*(hot)).*/.test(filePath),
   },
   module: {
     rules: [
