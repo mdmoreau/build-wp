@@ -167,5 +167,8 @@ module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.plugins.push(new CleanWebpackPlugin());
   }
+  if (!(env && env.WEBPACK_SERVE)) {
+    config.target = ['web', 'es5'];
+  }
   return config;
 };
