@@ -10,7 +10,6 @@ const host = 'site.localhost';
 const publicPath = '/wp-content/themes/site/dist/';
 
 const svgo = {
-  multipass: true,
   plugins: [
     {
       cleanupIDs: {
@@ -142,7 +141,7 @@ const config = {
     ],
   },
   optimization: {
-    minimizer: ['...', new CssMinimizerPlugin({ minimizerOptions: { preset: ['default', { mergeRules: false }] } })],
+    minimizer: ['...', new CssMinimizerPlugin({ minimizerOptions: { preset: ['default', { mergeRules: false, svgo }] } })],
   },
   plugins: [
     new CopyWebpackPlugin({
