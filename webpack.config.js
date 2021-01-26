@@ -2,24 +2,11 @@ const path = require('path');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const host = 'site.localhost';
 const publicPath = '/wp-content/themes/site/dist/';
-
-const svgo = {
-  plugins: [
-    {
-      cleanupIDs: {
-        minify: false,
-      },
-    },
-    { removeViewBox: false },
-    { removeDimensions: true },
-  ],
-};
 
 const onProxyRes = function onProxyRes(proxyRes, req, res) {
   const bodyChunks = [];
@@ -78,10 +65,6 @@ const config = {
             options: {
               esModule: false,
             },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgo,
           },
         ],
       },
@@ -142,7 +125,7 @@ const config = {
     ],
   },
   optimization: {
-    minimizer: ['...', new CssMinimizerPlugin({ minimizerOptions: { preset: ['default', { svgo }] } })],
+    minimizer: ['...', new CssMinimizerPlugin()],
   },
   plugins: [
     new CopyWebpackPlugin({
@@ -166,7 +149,6 @@ const config = {
 module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.plugins.unshift(new CleanWebpackPlugin());
-    config.plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/, svgo }));
   }
   if (!(env && env.WEBPACK_SERVE)) {
     config.target = ['web', 'es5'];
