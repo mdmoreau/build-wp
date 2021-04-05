@@ -52,7 +52,8 @@ const config = {
       },
     },
     before: (app, server) => {
-      server._watch('**/*.php'); // eslint-disable-line
+      // eslint-disable-next-line
+      server._watch('**/*.php');
     },
   },
   module: {
