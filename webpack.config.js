@@ -39,10 +39,9 @@ const config = {
     filename: 'js/[name].js',
   },
   devServer: {
-    hot: true,
     open: true,
     host,
-    publicPath,
+    watchFiles: ['**/*.php'],
     proxy: {
       '/': {
         target: `http://${host}`,
@@ -51,9 +50,8 @@ const config = {
         onProxyRes,
       },
     },
-    before: (app, server) => {
-      // eslint-disable-next-line
-      server._watch('**/*.php');
+    devMiddleware: {
+      publicPath,
     },
   },
   module: {
@@ -116,14 +114,12 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  target: ['web', 'es5'],
 };
 
 module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.plugins.unshift(new CleanWebpackPlugin());
-  }
-  if (!(env && env.WEBPACK_SERVE)) {
-    config.target = ['web', 'es5'];
   }
   return config;
 };
