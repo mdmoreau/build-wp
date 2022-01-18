@@ -42,7 +42,6 @@ const config = {
     open: true,
     host,
     watchFiles: ['**/*.php'],
-    writeToDisk: (filePath) => /img\//.test(filePath),
     proxy: {
       '/': {
         target: `http://${host}`,
@@ -53,6 +52,7 @@ const config = {
     },
     devMiddleware: {
       publicPath,
+      writeToDisk: (filePath) => /img\//.test(filePath),
     },
   },
   module: {
