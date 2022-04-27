@@ -1,11 +1,11 @@
 /* dependencies */
-@import 'normalize.css';
+@import "normalize.css";
 
 /* utilities */
-@import 'util/variables';
-@import 'util/mixins';
-@import 'util/base';
-@import 'util/helpers';
-@import 'util/wordpress';
+@import "util/variables";
+@import "util/mixins";
+@import "util/base";
+@import "util/helpers";
+@import "util/wordpress";
 
 /* components */
