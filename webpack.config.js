@@ -8,28 +8,6 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const host = 'site.localhost';
 const publicPath = '/wp-content/themes/site/dist/';
 
-const onProxyRes = function onProxyRes(proxyRes, req, res) {
-  const bodyChunks = [];
-  proxyRes.on('data', (chunk) => {
-    bodyChunks.push(chunk);
-  });
-  proxyRes.on('end', () => {
-    const body = Buffer.concat(bodyChunks);
-    res.status(proxyRes.statusCode);
-    Object.keys(proxyRes.headers).forEach((key) => {
-      res.append(key, proxyRes.headers[key]);
-    });
-    if (proxyRes.headers['content-type'] && proxyRes.headers['content-type'].includes('text/html')) {
-      let html = body.toString();
-      html = html.replace(new RegExp(host, 'g'), `${host}:8080`);
-      res.send(Buffer.from(html));
-    } else {
-      res.send(body);
-    }
-    res.end();
-  });
-};
-
 const config = {
   entry: {
     main: ['./src/css/main.css', './src/js/main.js'],
@@ -45,9 +23,6 @@ const config = {
     proxy: {
       '/': {
         target: `http://${host}`,
-        changeOrigin: true,
-        selfHandleResponse: true,
-        onProxyRes,
       },
     },
     devMiddleware: {
