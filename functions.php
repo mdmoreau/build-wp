@@ -19,15 +19,6 @@ function theme_js() {
 }
 add_action('wp_enqueue_scripts', 'theme_js');
 
-// disable automatic media links
-function disable_automatic_media_links() {
-  $image_set = get_option('image_default_link_type');
-  if ($image_set !== 'none') {
-    update_option('image_default_link_type', 'none');
-  }
-}
-add_action('admin_init', 'disable_automatic_media_links');
-
 // remove caption padding
 function remove_caption_padding($width) {
   return $width - 10;
