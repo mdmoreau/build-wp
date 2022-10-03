@@ -1,5 +1,5 @@
 /* dependencies */
-@import "normalize.css";
+@import "sanitize.css";
 
 /* utilities */
 @import "util/variables";

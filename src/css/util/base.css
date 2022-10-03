@@ -1,41 +1,31 @@
-*,
-::before,
-::after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-body {
-  word-wrap: break-word;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-iframe {
-  border: 0;
-}
-
+iframe,
 img,
-svg {
-  display: block;
+input,
+video,
+select,
+svg,
+textarea {
   max-width: 100%;
   height: auto;
 }
 
-svg {
-  fill: currentcolor;
+iframe,
+video {
+  aspect-ratio: 16 / 9;
 }
 
 button,
 input,
-optgroup,
 select,
 textarea {
+  padding: 0.25em 0.375em;
+  border: 1px solid;
   border-radius: 0;
+  background-color: field;
   color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-overflow: ellipsis;
 }
 
 button,
@@ -43,15 +33,6 @@ button,
 [type="reset"],
 [type="submit"] {
   cursor: pointer;
-}
-
-[type="search"] {
-  appearance: none;
-}
-
-::placeholder {
-  color: inherit;
-  opacity: 1;
 }
 
 :focus:not(:focus-visible) {
