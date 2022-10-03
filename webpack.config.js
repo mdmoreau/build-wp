@@ -70,8 +70,7 @@ const config = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/img',
-          to: 'img',
+          from: 'src/static',
           noErrorOnMissing: true,
         },
       ],
