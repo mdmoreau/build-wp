@@ -16,20 +16,6 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
   },
-  devServer: {
-    open: true,
-    host,
-    watchFiles: ['**/*.php'],
-    proxy: {
-      '/': {
-        target: `http://${host}`,
-      },
-    },
-    devMiddleware: {
-      publicPath,
-      writeToDisk: (filePath) => /img\//.test(filePath),
-    },
-  },
   module: {
     rules: [
       {
@@ -63,8 +49,22 @@ const config = {
       },
     ],
   },
-  optimization: {
-    minimizer: ['...', new CssMinimizerPlugin()],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  devServer: {
+    open: true,
+    host,
+    watchFiles: ['**/*.php'],
+    proxy: {
+      '/': {
+        target: `http://${host}`,
+      },
+    },
+    devMiddleware: {
+      publicPath,
+      writeToDisk: (filePath) => /img\//.test(filePath),
+    },
   },
   plugins: [
     new CopyWebpackPlugin({
@@ -80,8 +80,8 @@ const config = {
       filename: 'css/[name].css',
     }),
   ],
-  resolve: {
-    extensions: ['.js', '.jsx'],
+  optimization: {
+    minimizer: ['...', new CssMinimizerPlugin()],
   },
 };
 
