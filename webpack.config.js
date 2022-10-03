@@ -83,7 +83,6 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  target: ['web', 'es5'],
 };
 
 module.exports = (env, argv) => {

@@ -27,10 +27,3 @@
     margin-bottom: 0;
   }
 }
-
-@define-mixin container $width: 80rem {
-  width: 100%;
-  max-width: $width;
-  margin-right: auto;
-  margin-left: auto;
-}
