@@ -1,5 +1,5 @@
 #wpadminbar {
-  position: fixed !important;
+  position: fixed;
 }
 
 .wp-caption {
@@ -15,6 +15,5 @@
 }
 
 .aligncenter {
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
 }

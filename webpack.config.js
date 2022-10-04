@@ -63,7 +63,7 @@ const config = {
     },
     devMiddleware: {
       publicPath,
-      writeToDisk: (filePath) => /img\//.test(filePath),
+      writeToDisk: (filePath) => /\.svg$/.test(filePath),
     },
   },
   plugins: [
