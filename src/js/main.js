@@ -1,7 +1,6 @@
 // dependencies
 
 // utilities
-import './util/popup';
-import './util/toggle';
+import './util/expand';
 
 // components
