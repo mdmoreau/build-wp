@@ -1,0 +1,7 @@
+@layer base, component, utility;
+
+@import "props.css" layer(base);
+@import "reset.css" layer(base);
+@import "type.css" layer(base);
+@import "utility.css" layer(utility);
+@import "wordpress.css" layer(utility);
