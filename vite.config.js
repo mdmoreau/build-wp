@@ -1,15 +1,7 @@
-const host = 'site.localhost';
-
 export default {
-  server: {
-    host,
-    proxy: {
-      '^(?!/(@vite|node_modules|src|images)/)': {
-        target: `http://${host}`,
-      },
-    },
-  },
   build: {
+    outDir: 'public/dist',
+    copyPublicDir: false,
     rollupOptions: {
       input: ['src/styles/style.css', 'src/scripts/script.ts'],
       output: {
