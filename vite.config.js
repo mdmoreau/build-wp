@@ -1,4 +1,7 @@
 export default {
+  server: {
+    open: 'http://vite.localhost/',
+  },
   build: {
     outDir: 'public/dist',
     copyPublicDir: false,

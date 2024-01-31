@@ -8,7 +8,7 @@ add_action('after_setup_theme', 'theme_settings');
 
 // theme assets
 function theme_assets() {
-  if (is_vite_dev()) {
+  if (is_vite()) {
     wp_enqueue_script('vite-client-dev', 'http://localhost:5173/@vite/client', [], null);
     wp_enqueue_style('theme-style-dev', 'http://localhost:5173/src/styles/style.css', [], null);
     wp_enqueue_script('theme-script-dev', 'http://localhost:5173/src/scripts/script.ts', [], null, true);
@@ -36,10 +36,10 @@ function remove_caption_padding($width) {
 }
 add_filter('img_caption_shortcode_width', 'remove_caption_padding');
 
-// is vite dev
-function is_vite_dev() {
+// is vite
+function is_vite() {
   $host = $_SERVER['HTTP_HOST'];
-  return str_starts_with($host, 'hmr') && str_ends_with($host, 'localhost');
+  return str_starts_with($host, 'vite') && str_ends_with($host, 'localhost');
 }
 
 // inline svg
