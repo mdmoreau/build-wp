@@ -13,6 +13,9 @@ export default {
       },
     },
   },
+  css: {
+    transformer: 'lightningcss',
+  },
   plugins: [
     {
       handleHotUpdate({ file, server }) {
