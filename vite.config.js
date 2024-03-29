@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   server: {
-    open: 'http://vite.localhost/',
+    host: true,
   },
   build: {
     outDir: 'public/dist',
@@ -22,7 +22,7 @@ export default defineConfig({
     {
       handleHotUpdate({ file, server }) {
         if (file.endsWith('.php')) {
-          server.ws.send({ type: 'full-reload', path: '*' });
+          server.hot.send({ type: 'full-reload', path: '*' });
         }
       },
     },
