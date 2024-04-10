@@ -1,9 +1,9 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
-	"settings": {},
-	"styles": {},
-	"customTemplates": [],
-	"templateParts": [],
-	"patterns": []
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {},
+  "styles": {},
+  "customTemplates": [],
+  "templateParts": [],
+  "patterns": []
 }
