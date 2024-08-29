@@ -15,6 +15,15 @@ function theme_assets() {
 }
 add_action('wp_enqueue_scripts', 'theme_assets');
 
+// theme blocks
+function theme_blocks() {
+  $blocks = glob(get_template_directory() . '/blocks/build/*');
+  foreach ($blocks as $block) {
+    register_block_type($block);
+  }
+}
+add_action('init', 'theme_blocks');
+
 // inline svg
 function inline_svg($name) {
   return file_get_contents(get_theme_file_path("/assets/$name.svg"));
