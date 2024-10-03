@@ -6,11 +6,7 @@ const edit = () => {
   const blockProps = useBlockProps();
   const innerBlocksProps = useInnerBlocksProps(blockProps, { templateLock: false, renderAppender: InnerBlocks.ButtonBlockAppender });
 
-  return (
-    <div id="root">
-      <main {...innerBlocksProps} />
-    </div>
-  );
+  return <main {...innerBlocksProps} />;
 }
 
 const save = () => <InnerBlocks.Content />;
