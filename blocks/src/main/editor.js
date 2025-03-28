@@ -1,5 +1,5 @@
-import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, useInnerBlocksProps, InnerBlocks } from '@wordpress/block-editor';
+import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
 
 const edit = () => {
@@ -7,7 +7,7 @@ const edit = () => {
   const innerBlocksProps = useInnerBlocksProps(blockProps, { templateLock: false, renderAppender: InnerBlocks.ButtonBlockAppender });
 
   return <main {...innerBlocksProps} />;
-}
+};
 
 const save = () => <InnerBlocks.Content />;
 
