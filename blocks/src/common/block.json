@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "theme/common",
+  "title": "Common",
+  "allowedBlocks": [
+    "core/heading",
+    "core/image",
+    "core/list",
+    "core/paragraph"
+  ],
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "core/heading",
+        "attributes": {
+          "content": "Lorem ipsum dolor sit"
+        }
+      },
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta accusantium nihil repellat nemo consectetur, id ipsum!"
+        }
+      }
+    ]
+  },
+  "supports": {
+    "anchor": true,
+    "className": false
+  },
+  "editorScript": "file:./editor.js",
+  "render": "file:./render.php"
+}

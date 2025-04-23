@@ -3,10 +3,11 @@ import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
 
 const edit = () => {
-  const blockProps = useBlockProps();
-  const innerBlocksProps = useInnerBlocksProps(blockProps, { templateLock: false, renderAppender: InnerBlocks.ButtonBlockAppender });
+  const template = [['core/paragraph']];
+  const blockProps = useBlockProps({ className: 'Common' });
+  const innerBlocksProps = useInnerBlocksProps(blockProps, { template, templateLock: false });
 
-  return <main {...innerBlocksProps} />;
+  return <div {...innerBlocksProps} />;
 };
 
 const save = () => <InnerBlocks.Content />;
