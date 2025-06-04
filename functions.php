@@ -6,13 +6,14 @@ function theme_setup() {
   add_theme_support('editor-styles');
   add_theme_support('disable-layout-styles');
   remove_theme_support('core-block-patterns');
-  add_editor_style(['/assets/style.css']);
+  add_editor_style(['/assets/style.css', '/style.css']);
 };
 
 add_action('after_setup_theme', 'theme_setup');
 
 function theme_assets() {
   wp_enqueue_style('theme-style', get_theme_file_uri('/assets/style.css'), [], null);
+  wp_enqueue_style('theme-custom', get_theme_file_uri('/style.css'), [], null);
   wp_enqueue_script('theme-script', get_theme_file_uri('/assets/script.js'), [], null, true);
   wp_dequeue_style('wp-block-library');
 };
