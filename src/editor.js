@@ -2,17 +2,6 @@ import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
 
-const customBlockClassName = (className, blockName) => {
-  switch (blockName) {
-    case 'core/image':
-      return `${className} Image`;
-    default:
-      return className;
-  }
-};
-
-addFilter('blocks.getBlockDefaultClassName', 'theme/custom-block-class-name', customBlockClassName);
-
 const customBlockSettings = (settings, name) => {
   const allowedBlocks = [];
   const disallowedBlocks = ['core/nextpage'];
@@ -44,9 +33,8 @@ addFilter('blocks.registerBlockType', 'theme/custom-block-settings', customBlock
 
 const customBlockEdit = createHigherOrderComponent((BlockEdit) => {
   return (props) => {
-    const { clientId } = props;
-    props.hasInnerBlocks = !!useSelect((select) => select('core/block-editor').getBlockCount(clientId));
-    return <BlockEdit key="edit" {...props} />;
+    const hasInnerBlocks = !!useSelect((select) => select('core/block-editor').getBlockCount(props.clientId));
+    return <BlockEdit key="edit" {...props} hasInnerBlocks={hasInnerBlocks} />;
   };
 }, 'customBlockEdit');
 

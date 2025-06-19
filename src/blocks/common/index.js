@@ -1,3 +1,5 @@
+import './style.css';
+
 import { useBlockProps, useInnerBlocksProps, InnerBlocks } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';

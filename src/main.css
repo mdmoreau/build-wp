@@ -1,0 +1,145 @@
+/* props */
+
+:root {
+
+}
+
+/* base */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+#root {
+  container: root / inline-size;
+}
+
+body {
+  margin: 0;
+  text-size-adjust: none;
+  overflow-wrap: break-word;
+}
+
+iframe,
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+img,
+svg {
+  height: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+video,
+[src*="player.vimeo.com"],
+[src*="youtube.com/embed"] {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+blockquote,
+fieldset,
+figure,
+legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+  text-overflow: ellipsis;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+[type="search"] {
+  appearance: none;
+}
+
+::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+:focus {
+  outline: 0.25rem dashed;
+  outline-offset: 0.25rem;
+
+  &:not(:focus-visible) {
+    outline: 0;
+  }
+}
+
+/* type */
+
+body {
+
+}
+
+/* utility */
+
+.mt-block {
+  > :first-child {
+    margin-block-start: 0;
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+}
+
+.screen-reader-text {
+  &:not(:active, :focus, :focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+/* blocks */
+
+.wp-block-image {
+  display: table;
+
+  figcaption {
+    display: table-caption;
+    caption-side: bottom;
+  }
+}
