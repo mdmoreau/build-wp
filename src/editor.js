@@ -7,6 +7,12 @@ const customBlockSettings = (settings, name) => {
   const disallowedBlocks = ['core/nextpage'];
 
   switch (name) {
+    case 'core/button':
+      settings.styles = [];
+      break;
+    case 'core/buttons':
+      settings.parent = ['theme/common'];
+      break;
     case 'core/heading':
       settings.parent = ['theme/common'];
       break;

@@ -8,6 +8,9 @@
       "defaultDuotone": false,
       "text": false
     },
+    "layout": {
+      "allowEditing": false
+    },
     "shadow": {
       "defaultPresets": false
     },
@@ -20,6 +23,13 @@
       "letterSpacing": false,
       "textDecoration": false,
       "textTransform": false
+    },
+    "blocks": {
+      "core/button": {
+        "border": {
+          "radius": false
+        }
+      }
     }
   }
 }

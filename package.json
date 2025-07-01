@@ -7,7 +7,7 @@
     "build": "wp-scripts build"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^30.15.0",
+    "@wordpress/scripts": "^30.19.0",
     "browser-sync-webpack-plugin": "^2.4.0",
     "postcss-nesting": "^13.0.2"
   }

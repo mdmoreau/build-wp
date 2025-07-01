@@ -110,6 +110,17 @@ body {
 
 }
 
+/* blocks */
+
+.wp-block-image {
+  display: table;
+
+  figcaption {
+    display: table-caption;
+    caption-side: bottom;
+  }
+}
+
 /* utility */
 
 .mt-block {
@@ -130,16 +141,5 @@ body {
     clip-path: inset(50%);
     overflow: hidden;
     white-space: nowrap;
-  }
-}
-
-/* blocks */
-
-.wp-block-image {
-  display: table;
-
-  figcaption {
-    display: table-caption;
-    caption-side: bottom;
   }
 }

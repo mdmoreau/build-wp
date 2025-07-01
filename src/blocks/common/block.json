@@ -4,6 +4,7 @@
   "name": "theme/common",
   "title": "Common",
   "allowedBlocks": [
+    "core/buttons",
     "core/heading",
     "core/image",
     "core/list",
@@ -30,6 +31,6 @@
     "className": false
   },
   "editorScript": "file:./index.js",
-  "style": "file:./style-index.css",
+  "style": "file:./style.css",
   "render": "file:./render.php"
 }
