@@ -4,8 +4,10 @@
   "settings": {
     "color": {
       "background": false,
+      "button": false,
       "customDuotone": false,
       "defaultDuotone": false,
+      "heading": false,
       "text": false
     },
     "layout": {

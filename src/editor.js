@@ -13,6 +13,9 @@ const customBlockSettings = (settings, name) => {
     case 'core/buttons':
       settings.parent = ['theme/common'];
       break;
+    case 'core/group':
+      settings.variations = [];
+      break;
     case 'core/heading':
       settings.parent = ['theme/common'];
       break;
