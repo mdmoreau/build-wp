@@ -8,7 +8,8 @@
     "core/heading",
     "core/image",
     "core/list",
-    "core/paragraph"
+    "core/paragraph",
+    "core/quote"
   ],
   "example": {
     "innerBlocks": [

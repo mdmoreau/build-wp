@@ -29,6 +29,11 @@ const customBlockSettings = (settings, name) => {
     case 'core/paragraph':
       settings.parent = ['theme/common'];
       break;
+    case 'core/quote':
+      settings.allowedBlocks = ['core/paragraph'];
+      settings.parent = ['theme/common'];
+      settings.styles = [];
+      break;
   }
 
   if (!(name.startsWith('theme/') || allowedBlocks.includes(name)) && (!settings.parent || disallowedBlocks.includes(name))) {
