@@ -6,7 +6,7 @@ import block from './block.json';
 
 const edit = () => {
   const template = [['core/paragraph']];
-  const blockProps = useBlockProps({ className: 'Common' });
+  const blockProps = useBlockProps({ className: 'Common margin-trim-block' });
   const innerBlocksProps = useInnerBlocksProps(blockProps, { template, templateLock: false });
 
   return <div {...innerBlocksProps} />;
