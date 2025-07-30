@@ -12,7 +12,7 @@ function theme_setup() {
 add_action('after_setup_theme', 'theme_setup');
 
 function theme_init() {
-  $blocks = glob(get_template_directory() . '/build/blocks/*');
+  $blocks = glob(get_theme_file_path('/build/blocks/*'));
   foreach ($blocks as $block) {
     register_block_type($block);
   }
