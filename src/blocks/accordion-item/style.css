@@ -1,0 +1,47 @@
+.AccordionItem {
+
+}
+
+.AccordionItem__heading {
+  margin: 0;
+}
+
+.AccordionItem__toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    width: 1em;
+    aspect-ratio: 1;
+    margin-left: auto;
+    transition: transform var(--transition);
+    background: currentcolor;
+    mask: url("../../../assets/angle-down.svg") center / contain no-repeat;
+  }
+
+  &[aria-expanded="true"] {
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.AccordionItem__content {
+  display: grid;
+  grid-template: minmax(0, 0fr) / 100%;
+  transition: grid-template-rows var(--transition), visibility var(--transition);
+  overflow: hidden;
+  visibility: hidden;
+
+  .AccordionItem__heading:has([aria-expanded="true"]) + & {
+    grid-template-rows: minmax(0, 1fr);
+    visibility: visible;
+  }
+}
+
+.AccordionItem__interior {
+  padding: 1em;
+}

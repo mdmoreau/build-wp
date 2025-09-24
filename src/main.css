@@ -1,7 +1,7 @@
 /* props */
 
 :root {
-
+  --transition: 400ms ease;
 }
 
 /* base */
