@@ -3,6 +3,7 @@ import './style.css';
 import { useBlockProps, useInnerBlocksProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
+import example from './example.json';
 
 const edit = ({ attributes, setAttributes }) => {
   const { heading } = attributes;
@@ -31,4 +32,4 @@ const edit = ({ attributes, setAttributes }) => {
 
 const save = () => <InnerBlocks.Content />;
 
-registerBlockType(block, { edit, save });
+registerBlockType(block, { example, edit, save });

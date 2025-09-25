@@ -3,6 +3,7 @@ import './style.css';
 import { useBlockProps, useInnerBlocksProps, InnerBlocks } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
+import example from './example.json';
 
 const edit = () => {
   const template = [['theme/accordion-item']];
@@ -14,4 +15,4 @@ const edit = () => {
 
 const save = () => <InnerBlocks.Content />;
 
-registerBlockType(block, { edit, save });
+registerBlockType(block, { example, edit, save });
