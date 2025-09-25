@@ -5,11 +5,10 @@ import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
 
 const edit = () => {
-  const template = [['core/paragraph']];
-  const blockProps = useBlockProps({ className: 'Common' });
-  const innerBlocksProps = useInnerBlocksProps(blockProps, { template, templateLock: false });
+  const blockProps = useBlockProps({ className: 'Section' });
+  const innerBlocksProps = useInnerBlocksProps(blockProps, { templateLock: 'all' });
 
-  return <div {...innerBlocksProps} />;
+  return <section {...innerBlocksProps} />;
 };
 
 const save = () => <InnerBlocks.Content />;

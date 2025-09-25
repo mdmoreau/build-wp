@@ -160,16 +160,6 @@ body {
   table-layout: fixed;
 }
 
-.margin-trim-block {
-  > :first-child {
-    margin-block-start: 0;
-  }
-
-  > :last-child {
-    margin-block-end: 0;
-  }
-}
-
 .screen-reader-text {
   &:not(:active, :focus, :focus-within) {
     position: absolute;
