@@ -72,6 +72,7 @@ remove_action('enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_
 remove_action('enqueue_block_editor_assets', 'gutenberg_enqueue_block_editor_assets_block_directory');
 
 add_filter('styles_inline_size_limit', '__return_zero');
+remove_filter('render_block', 'wp_render_layout_support_flag', 10, 2);
 
 function inline_svg($name) {
   return file_get_contents(get_theme_file_path("/assets/{$name}.svg"));
