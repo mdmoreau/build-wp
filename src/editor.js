@@ -34,6 +34,10 @@ const customBlockSettings = (settings, name) => {
       settings.parent = ['theme/common'];
       settings.styles = [];
       break;
+    case 'core/table':
+      settings.parent = ['theme/common'];
+      settings.styles = [];
+      break;
   }
 
   if (!(name.startsWith('theme/') || allowedBlocks.includes(name)) && (!settings.parent || disallowedBlocks.includes(name))) {
