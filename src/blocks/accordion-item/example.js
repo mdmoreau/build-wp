@@ -1,0 +1,30 @@
+export default {
+  name: 'theme/accordion-item',
+  attributes: {
+    heading: 'Lorem ipsum dolor sit',
+  },
+  innerBlocks: [
+    {
+      name: 'theme/common',
+      innerBlocks: [
+        {
+          name: 'core/paragraph',
+          attributes: {
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta accusantium nihil repellat nemo consectetur, id ipsum!',
+          },
+        },
+        {
+          name: 'core/buttons',
+          innerBlocks: [
+            {
+              name: 'core/button',
+              attributes: {
+                text: 'Lorem ipsum',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};

@@ -1,6 +1,11 @@
 .Common {
   display: flow-root;
 
+  #main-content > &,
+  .is-root-container > & {
+    margin: var(--gap-lg) var(--wrap-sm);
+  }
+
   > :first-child {
     margin-block-start: 0;
   }

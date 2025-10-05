@@ -3,7 +3,7 @@ import './style.css';
 import { useBlockProps, useInnerBlocksProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
-import example from './example.json';
+import example from './example.js';
 
 const edit = ({ attributes, setAttributes }) => {
   const { heading } = attributes;

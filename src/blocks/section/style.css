@@ -1,3 +1,22 @@
 .Section {
+  display: grid;
+  gap: var(--gap);
+  margin: var(--gap-lg) var(--wrap);
 
+  @container (width >= 48rem) {
+    grid-template: auto / 1fr 1fr;
+  }
+
+  > .wp-block-buttons {
+    @container (width >= 48rem) {
+      place-self: start end;
+    }
+  }
+
+  > :not(.Common, .wp-block-buttons) {
+    @container (width >= 48rem) {
+      order: 1;
+      grid-column: 1 / -1;
+    }
+  }
 }

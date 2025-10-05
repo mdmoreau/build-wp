@@ -1,7 +1,15 @@
 /* props */
 
 :root {
-  --transition: 400ms ease;
+  /* layout */
+  --gap: clamp(1.5rem, 6vw, 3rem);
+  --gap-sm: clamp(1rem, 4vw, 2rem);
+  --gap-lg: clamp(3rem, 12vw, 6rem);
+  --wrap: max(var(--gap), (100% - 80rem) / 2);
+  --wrap-sm: max(var(--gap), (100% - 48rem) / 2);
+
+  /* animation */
+  --transition: 300ms ease;
 }
 
 /* base */
