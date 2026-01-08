@@ -4,7 +4,7 @@
   margin: var(--gap-lg) var(--wrap);
 
   @container (width >= 48rem) {
-    grid-template: auto / 1fr 1fr;
+    grid-template: auto / repeat(2, minmax(0, 1fr));
   }
 
   > .wp-block-buttons {
