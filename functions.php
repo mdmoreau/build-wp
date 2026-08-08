@@ -29,6 +29,7 @@ function theme_scripts() {
 
 add_action('wp_enqueue_scripts', 'theme_scripts');
 remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
+remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
 
 function theme_editor() {
   $editor = include(get_theme_file_path('/build/editor.asset.php'));
