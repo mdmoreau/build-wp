@@ -1,5 +1,11 @@
 module.exports = {
   plugins: {
-    'postcss-nesting': {},
+    'postcss-preset-env': {
+      stage: false,
+      features: {
+        'mixins': true,
+        'nesting-rules': true,
+      },
+    },
   },
 };
