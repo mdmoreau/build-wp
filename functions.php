@@ -16,38 +16,6 @@ function theme_init() {
   foreach ($blocks as $block) {
     register_block_type($block);
   }
-
-  WP_Block_Supports::get_instance()->register('anchor', [
-    'register_attribute' => function ($block_type) {
-      $has_anchor_support = _wp_array_get($block_type->supports, ['anchor'], true);
-      if (!$has_anchor_support) {
-        return;
-      }
-      if (!$block_type->attributes) {
-        $block_type->attributes = [];
-      }
-      if (!array_key_exists('anchor', $block_type->attributes)) {
-        $block_type->attributes['anchor'] = ['type' => 'string'];
-      }
-    },
-    'apply' => function ($block_type, $block_attributes) {
-      if (!$block_attributes) {
-        return [];
-      }
-      if (wp_should_skip_block_supports_serialization($block_type, 'anchor')) {
-        return [];
-      }
-      $has_anchor_support = _wp_array_get($block_type->supports, ['anchor'], true);
-      if (!$has_anchor_support) {
-        return [];
-      }
-      $has_anchor = array_key_exists('anchor', $block_attributes);
-      if (!$has_anchor) {
-        return [];
-      }
-      return ['id' => $block_attributes['anchor']];
-    },
-  ]);
 };
 
 add_action('init', 'theme_init');
