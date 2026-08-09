@@ -9,6 +9,7 @@
   "supports": {
     "anchor": true,
     "className": false,
+    "html": false,
     "inserter": false
   },
   "editorScript": "file:./index.js",

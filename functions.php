@@ -12,28 +12,22 @@ function theme_setup() {
 add_action('after_setup_theme', 'theme_setup');
 
 function theme_init() {
-  $blocks = glob(get_theme_file_path('/build/blocks/*'));
-  foreach ($blocks as $block) {
-    register_block_type($block);
-  }
+  wp_register_block_types_from_metadata_collection(get_theme_file_path('/build/blocks'), get_theme_file_path('/build/blocks-manifest.php'));
 };
 
 add_action('init', 'theme_init');
 
 function theme_scripts() {
   $main = include(get_theme_file_path('/build/main.asset.php'));
-  wp_enqueue_style('theme-main', get_theme_file_uri('/build/main.css'));
-  wp_enqueue_script('theme-main', get_theme_file_uri('/build/main.js'), $main['dependencies']);
-  wp_dequeue_style('wp-block-library');
+  wp_enqueue_style('theme-main', get_theme_file_uri('/build/main.css'), [], $main['version']);
+  wp_enqueue_script('theme-main', get_theme_file_uri('/build/main.js'), $main['dependencies'], $main['version'], ['strategy' => 'defer']);
 };
 
 add_action('wp_enqueue_scripts', 'theme_scripts');
-remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
-remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
 
 function theme_editor() {
   $editor = include(get_theme_file_path('/build/editor.asset.php'));
-  wp_enqueue_script('theme-editor', get_theme_file_uri('/build/editor.js'), $editor['dependencies']);
+  wp_enqueue_script('theme-editor', get_theme_file_uri('/build/editor.js'), $editor['dependencies'], $editor['version']);
 };
 
 add_action('enqueue_block_editor_assets', 'theme_editor');
@@ -41,8 +35,10 @@ remove_action('enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_
 remove_action('enqueue_block_editor_assets', 'gutenberg_enqueue_block_editor_assets_block_directory');
 
 add_filter('styles_inline_size_limit', '__return_zero');
-remove_filter('render_block', 'wp_render_layout_support_flag', 10, 2);
 
 function inline_svg($name) {
-  return file_get_contents(get_theme_file_path("/assets/{$name}.svg"));
+  $file = get_theme_file_path("/assets/{$name}.svg");
+  if (file_exists($file)) {
+    return file_get_contents($file);
+  }
 }

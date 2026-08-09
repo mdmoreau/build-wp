@@ -22,10 +22,15 @@
 
 :root {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--wp-admin--admin-bar--height, 0px);
 }
 
 #root {
   container: root / inline-size;
+}
+
+#wpadminbar {
+  position: fixed;
 }
 
 body {
@@ -160,28 +165,4 @@ body {
   td {
     padding: 0;
   }
-}
-
-/* utility */
-
-.has-fixed-layout {
-  table-layout: fixed;
-}
-
-.screen-reader-text {
-  &:not(:active, :focus, :focus-within) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip-path: inset(50%);
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
-
-.skip-link {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
 }

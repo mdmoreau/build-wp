@@ -24,7 +24,7 @@ export default {
     new BrowserSyncPlugin({
       proxy: 'http://localhost',
       files: ['build/**/*.php', 'build/**/*.css', 'build/**/*.js'],
-      ignore: ['build/**/*.asset.php', 'build/**/*-rtl.css'],
+      ignore: ['build/blocks-manifest.php', 'build/**/*.asset.php', 'build/**/*-rtl.css'],
     }, {
       reload: false,
     }),

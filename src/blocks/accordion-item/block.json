@@ -12,7 +12,8 @@
   },
   "supports": {
     "anchor": true,
-    "className": false
+    "className": false,
+    "html": false
   },
   "editorScript": "file:./index.js",
   "viewScript": "file:./view.js",

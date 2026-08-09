@@ -14,7 +14,8 @@
   ],
   "supports": {
     "anchor": true,
-    "className": false
+    "className": false,
+    "html": false
   },
   "editorScript": "file:./index.js",
   "style": "file:./style.css",

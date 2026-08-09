@@ -8,5 +8,5 @@
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <div id="root">
-      <a class="screen-reader-text skip-link" href="#main-content">Skip to main content</a>
+      <a class="screen-reader-text" href="#main-content">Skip to main content</a>
       <main id="main-content">

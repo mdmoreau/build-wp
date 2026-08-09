@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "wp-scripts start",
-    "build": "wp-scripts build"
+    "start": "wp-scripts start --blocks-manifest",
+    "build": "wp-scripts build --blocks-manifest"
   },
   "devDependencies": {
     "@wordpress/scripts": "^34.0.0",
