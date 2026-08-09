@@ -1,6 +1,7 @@
 import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 const customBlockSettings = (settings, name) => {
   const allowedBlocks = [];
@@ -51,7 +52,17 @@ addFilter('blocks.registerBlockType', 'theme/custom-block-settings', customBlock
 
 const customBlockEdit = createHigherOrderComponent((BlockEdit) => {
   return (props) => {
+    const { name, attributes } = props;
     const hasInnerBlocks = !!useSelect((select) => select('core/block-editor').getBlockCount(props.clientId));
+
+    if (name === 'core/buttons') {
+      const template = [['core/button']];
+      const blockProps = useBlockProps(attributes);
+      const innerBlocksProps = useInnerBlocksProps(blockProps, { template, templateLock: false });
+
+      return <div {...innerBlocksProps} />;
+    }
+
     return <BlockEdit key="edit" {...props} hasInnerBlocks={hasInnerBlocks} />;
   };
 }, 'customBlockEdit');

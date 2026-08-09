@@ -25,12 +25,13 @@
   scroll-padding-top: var(--wp-admin--admin-bar--height, 0px);
 }
 
-#root {
-  container: root / inline-size;
-}
-
 #wpadminbar {
   position: fixed;
+}
+
+.wp-site-blocks,
+.is-root-container {
+  container: root / inline-size;
 }
 
 body {

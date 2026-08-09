@@ -1,7 +1,3 @@
 .editor-visual-editor__post-title-wrapper {
   display: none;
 }
-
-.is-root-container {
-  container: root / inline-size;
-}
