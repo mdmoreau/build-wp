@@ -35,6 +35,9 @@ const customBlockSettings = (settings, name) => {
       settings.parent = ['theme/common'];
       settings.styles = [];
       break;
+    case 'core/separator':
+      settings.parent = ['theme/common'];
+      break;
     case 'core/table':
       settings.parent = ['theme/common'];
       settings.styles = [];

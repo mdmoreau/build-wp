@@ -1,7 +1,7 @@
 .Common {
   display: flow-root;
 
-  #main-content > &,
+  .entry-content > &,
   .is-root-container > & {
     margin: var(--gap-lg) var(--wrap-sm);
   }

@@ -1,5 +1,6 @@
 .Section {
   display: grid;
+  grid-template: auto / 100%;
   gap: var(--gap);
   margin: var(--gap-lg) var(--wrap);
 
