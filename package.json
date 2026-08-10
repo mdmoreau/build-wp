@@ -7,6 +7,7 @@
     "build": "wp-scripts build --blocks-manifest"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^4.0.0",
     "@wordpress/scripts": "^34.0.0",
     "browser-sync-webpack-plugin": "^2.4.0",
     "postcss-preset-env": "^11.3.2"
